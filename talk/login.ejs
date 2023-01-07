@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Talk</title>
+    <link rel="style-sheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <script>
+        function setId() {
+            var id = document.querySelector('#id_input').value;
+            localStorage.setItem('id', id);
+            location.href = '/';
+        }
+    </script>
+</head>
+
+<body class="container" onload="init();">
+
+    <header>
+        <h1 class="display-4">Talk</h1>
+    </header>
+    <div role="main">
+        <p>Enter Username</p>
+        <div class="form-group">
+            <label for="id_input">Username:</label>
+            <input type="text" id="id_input" class="form-control">
+        </div>
+        <button onclick="setId();" class="btn btn-primary">Confirm</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Talk</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <script>
+        function init() {
+            var id = localStorage.getItem('id');
+            if (id == null) {
+                location.href = './login';
+            }
+            document.querySelector('#id').textContent = 'ID:' + id;
+            document.querySelector('#id_input').value = id;
+        }
+    </script>
+</head>
+
+<body class="container" onload="init();" style="width: 500px; margin-left:auto; margin-right:auto">
+    <header>
+        <h1 class="display-4">Talk</h1>
+    </header>
+    <div role="main">
+        <p>
+        <h2>Private Talk Space</h2>
+        </p>
+        <form method="post" action="/">
+            <p id="id"></p>
+            <input type="hidden" id="timestamp" name="timestamp">
+            <input type="hidden" id="id_input" name="id">
+            <div class="form-group">
+                <p><label for="msg">Message</label>
+                    <input type="text" name="msg" id="msg" class="form-control">
+                </p>
+            </div>
+            <input type="submit" value="send" class="btn btn-primary">
+            <script>
+                // TimeStampを用意する. (日本時刻)
+                var timestamp = Date.now() + 3600 * 9 * 1000;
+                document.querySelector('#timestamp').textContent = 'timestamp:' + timestamp;
+                document.querySelector('#timestamp').value = timestamp;
+            </script>
+        </form>
+
+        <table class="table" border="1">
+            <% for(var i in data) { %>
+                <%- include('data_item', {val:data[i]}) %>
+                    <% } %>
+        </table>
+    </div>
+</body>
+
+</html>

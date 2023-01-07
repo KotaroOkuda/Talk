@@ -1,0 +1,14 @@
+<% if (val !='' ){ %>
+    <% var obj=JSON.parse(val); %>
+        <tr>
+            <th>
+                <%= obj.timestamp %>
+            </th>
+            <th>
+                <%= obj.id %>
+            </th>
+            <th>
+                <%= obj.msg %>
+            </th>
+        </tr>
+        <% } %>
